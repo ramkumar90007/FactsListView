@@ -9,11 +9,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-
-
 import com.view.list.facts.model.NewsFeed;
 import com.view.list.facts.model.NewsFeedList;
 import com.view.list.facts.networking.Service;
+import com.view.list.facts.utils.ConnectivityReceiver;
 
 import javax.inject.Inject;
 
@@ -31,6 +30,7 @@ public class FactsActivity extends BaseApp implements FactsView ,SwipeRefreshLay
         super.onCreate(savedInstanceState);
         renderView();
         init();
+        checkConnection();
         getFeeds().inject(this);
         presenter = new FactsPresenter(service, this);
         presenter.getNewsFeedList();
@@ -45,6 +45,17 @@ public class FactsActivity extends BaseApp implements FactsView ,SwipeRefreshLay
         swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this);
     }
+    // Method to manually check connection status
+    private void checkConnection () {
+        boolean isConnected = ConnectivityReceiver.isConnected();
+        if(!isConnected)
+        {
+            Toast.makeText(getApplicationContext(),"Sorry Not Connected to Internet. Please Check your Internet Connection",Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
     @Override
     public void onRefresh() {
         presenter.getNewsFeedList();

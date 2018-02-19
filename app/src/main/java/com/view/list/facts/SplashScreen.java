@@ -1,15 +1,14 @@
 package com.view.list.facts;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-
-
-public class SplashScreen extends Activity
+public class SplashScreen extends AppCompatActivity
 {
 	protected int _splashTime = 4000;
 	

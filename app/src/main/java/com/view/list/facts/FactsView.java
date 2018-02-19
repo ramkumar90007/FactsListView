@@ -16,4 +16,6 @@ public interface FactsView {
 
     void getNewsFeedListSuccess(NewsFeedList newsFeedListResponse);
 
+
+
 }
