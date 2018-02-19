@@ -15,13 +15,14 @@ import com.view.list.facts.model.NewsFeed;
 import java.util.List;
 
 /**
- * Created by ramkumarpachaiyappan on 18/02/18.
+ * Created by ramkumarpachaiyappan on 19/02/18.
  */
 
 public class FactsAdapter extends RecyclerView.Adapter<FactsAdapter.ViewHolder> {
     private final OnItemClickListener listener;
     private List<NewsFeed> data;
     private Context context;
+    private View mView;
 
     public FactsAdapter(Context context, List<NewsFeed> data, OnItemClickListener listener) {
         this.data = data;
@@ -32,9 +33,9 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsAdapter.ViewHolder> 
 
     @Override
     public FactsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_facts, null);
-        view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
-        return new ViewHolder(view);
+        mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_facts, null);
+        mView.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
+        return new ViewHolder(mView);
     }
 
 
@@ -48,7 +49,6 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsAdapter.ViewHolder> 
 
         String images = data.get(position).getImageHref();
             Glide.with(context).load(images).into(holder.background);
-
     }
 
 

@@ -25,9 +25,9 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 @Module
 public class NetworkModule {
     File cacheFile;
-    public static final String BASEURL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/";
+    public static String BASEURL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/";
     public static final int CACHETIME = 432000;
-    public static final int LIMIT = 100;
+
 
     public NetworkModule(File cacheFile) {
         this.cacheFile = cacheFile;
