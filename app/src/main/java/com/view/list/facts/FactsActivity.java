@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
-import com.view.list.R;
+
 import com.view.list.facts.model.NewsFeed;
 import com.view.list.facts.model.NewsFeedList;
 import com.view.list.facts.networking.Service;

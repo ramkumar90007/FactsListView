@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FactsList</string>
+    <string name="androidproficiency">Android Proficiency Exercise</string>
+
 </resources>
